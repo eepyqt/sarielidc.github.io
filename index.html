@@ -14,7 +14,7 @@
 			display: none;
 		}
 		body {
-			background-color: #212121;
+			background-color: #000000;
 		}
 		.sarieri-container {
 			display: flex;
@@ -22,11 +22,36 @@
 			align-items: center;
 			width: 100vw;
 			height: 100vh;
-			background-color: #76906d;
+			background-color: #000000;
+			animation: sarieri-bg-animation 0.25s 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 		}
 		.sarieri {
 			color: #000;
 			font-size: 15vmin;
+			animation: sarieri-text-animation 0.5s 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		}
+		@keyframes sarieri-text-animation {
+			0% {
+				transform: translate(0px, 15vh) scale(1.5);
+			}
+			50% {
+				transform: translate(0px, 15vh) scale(1.5);
+			}
+			70% {
+				transform: translate(0px, 15vh) scale(1.4);
+			}
+		}
+		@keyframes sarieri-bg-animation {
+			100% {
+				background: #76906d;
+			}
+		}
+
+		#commands {
+			color: white;
+			font-family: monospace;
+			width: 100vw;
+			text-align: center;
 		}
 	</style>
 </head>
@@ -36,6 +61,18 @@
 			サリエリ
 		</div>
 	</div>
-	<div>xd</div>
+	<div id="commands">
+		User commands
+		<hr>
+		;ping - broken command atm
+		<br>;avatar|;a [@mention] - responds with a link to your or mentioned user's avatar
+
+		<br><br>Mod/Administrator Commands
+		<hr>
+		;slowMode|;s &ltnumber between 0 and 21600&gt - sets slowmode in channel to the entered value
+		<br>;purge|;p &ltnumber between 0 and 100&gt - removes entered number of messages in a channel if they're not older than 2 weeks
+
+		<br><br><hr>You can request a command in maho discord server and I'll try to implement it in the future.
+	</div>
 </body>
 </html>
